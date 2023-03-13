@@ -16,6 +16,9 @@ app.use("/user", userRoute)
 app.use("/products", productRoute)
 
 
+app.get("/", (req,res)=>{
+    return res.send({"msg": "Hello There! \nWelcome to Home Page"})
+})
 
 
 app.listen(process.env.port, async()=>{

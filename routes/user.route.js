@@ -11,6 +11,9 @@ const e = require("express")
 
 const userRoute = express.Router()
 
+userRoute.get("/", (req,res)=>{
+    return res.send({"msg":" Hi There!x"})
+})
 
 userRoute.post("/login", async(req,res)=>{
     try{
@@ -83,7 +86,7 @@ userRoute.get("/refresh", async(req,res)=>{
                         expiresIn: 60,
                     })
                     res.cookie("token", token)
-                    return res.send({"msg": "Refresh Token Generation Success"})
+                    return res.send({"msg": "Refresh Token Generation Success", token})
                 }
             })
         }
